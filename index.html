@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض فني ومالي - خدمات التسويق الرقمي والتطوير الإلكتروني | شركة شراع</title>
+    <!-- استدعاء مكتبة Tailwind CSS للتصميم المتجاوب والعصري -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- استدعاء خط Cairo من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at top right, #064e3b, #042f2e 45%, #022c22 100%);
+            color: #f0fdfa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* تأثيرات البطاقات الزجاجية */
+        .glass-card {
+            background: rgba(19, 78, 74, 0.35);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(45, 212, 191, 0.25);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+        }
+        .glass-card-dark {
+            background: rgba(4, 47, 46, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+        /* خطوط الربط في المخطط الهيكلي */
+        .tree-connector-v {
+            width: 3px;
+            background: linear-gradient(to bottom, #2dd4bf, #0d9488);
+            margin: 0 auto;
+        }
+        /* حركة الطفو للشعار والأيقونات */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+        .animate-float {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+        /* حركة الطفو والتوهج المستمر للوجو العائم */
+        @keyframes floatAndGlow {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 0 18px rgba(45, 212, 191, 0.45), 0 0 32px rgba(20, 184, 166, 0.25);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.04);
+                box-shadow: 0 0 28px rgba(45, 212, 191, 0.85), 0 0 48px rgba(34, 211, 238, 0.55);
+            }
+        }
+        .floating-glow-logo {
+            animation: floatAndGlow 3.2s ease-in-out infinite;
+        }
+        /* تأثيرات الموشن لظهور الأقسام والبطاقات */
+        .motion-reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.985);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .motion-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .motion-card {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .motion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.55), 0 0 20px rgba(45, 212, 191, 0.15);
+            border-color: rgba(45, 212, 191, 0.55);
+        }
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #022c22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0d9488;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="pb-28 relative">
+
+    <!-- خلفية شبكية هندسية خفيفة -->
+    <div class="fixed inset-0 pointer-events-none opacity-15 z-0" 
+         style="background-image: radial-gradient(#2dd4bf 1px, transparent 1px); background-size: 28px 28px;"></div>
+
+    <!-- رأس الصفحة (Header Infographic Banner) -->
+    <header class="relative z-10 pt-10 pb-12 px-4 border-b border-teal-700/40 bg-gradient-to-b from-teal-950/90 to-transparent">
+        <div class="max-w-5xl mx-auto flex flex-col items-center text-center gap-6">
+            <!-- اللوجو الرئيسي في منتصف أعلى العرض -->
+            <div class="w-28 h-28 rounded-2xl p-1.5 bg-gradient-to-tr from-teal-400 to-cyan-300 shadow-2xl animate-float flex-shrink-0">
+                <img src="https://i.ibb.co/3mcGJZDm/f7a2f35c-a1d9-41a9-abab-883812218eaf.jpg" 
+                     alt="شعار شركة شراع" 
+                     class="w-full h-full object-cover rounded-xl">
+            </div>
+
+            <!-- العنوان الرئيسي والشارة -->
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-400/40 text-teal-200 px-3.5 py-1 rounded-full text-xs font-bold mb-3">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    عرض فني ومالي
+                </div>
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
+                    خدمات التسويق الرقمي والتطوير الإلكتروني
+                </h1>
+                <div class="mt-3 space-y-1">
+                    <p class="text-teal-200 text-sm md:text-base font-bold">
+                        مقدم من: شركة شراع
+                    </p>
+                    <p class="text-cyan-200 text-sm md:text-base font-bold">
+                        موجه إلى: شركة ركاز لخدمات الموارد البشرية والمنصات الحكومية
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للمخطط -->
+    <main class="max-w-7xl mx-auto px-4 mt-8 space-y-12 relative z-10">
+
+        <!-- الرسالة الترحيبية ومقدمة العرض -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-amber-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-5">
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">مقدمة العرض</span>
+                <h2 class="text-xl md:text-2xl font-black text-white mt-1">السادة/ إدارة شركة ركاز المحترمين،</h2>
+                <p class="text-teal-200 font-bold text-base mt-1">تحية طيبة وبعد،</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 text-teal-100 leading-relaxed text-sm md:text-base">
+                <div class="glass-card-dark motion-card p-5 rounded-2xl border border-teal-600/30">
+                    <p>يسر شركة شراع أن تقدم لكم هذا العرض الفني والمالي لتطوير الحضور الرقمي لشركة ركاز، وتعزيز انتشار علامتها التجارية في السوق السعودي، من خلال إنشاء موقع إلكتروني احترافي، وإدارة منصات التواصل الاجتماعي، وتحسين محركات البحث (SEO)، وفق خطة عمل متكاملة تستهدف زيادة الوعي بالعلامة التجارية، وتعزيز الثقة لدى العملاء المحتملين، وتحسين فرص الوصول إلى المنشآت والشركات المستهدفة.</p>
+                </div>
+                <div class="glass-card-dark motion-card p-5 rounded-2xl border border-cyan-600/30 flex items-center">
+                    <p>تعتمد الخطة على بناء حضور رقمي احترافي يعكس تنوع الخدمات التي تقدمها ركاز في مجالات الموارد البشرية، والعلاقات الحكومية، وإدارة المنصات، والخدمات التجارية والصناعية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- المخطط الهيكلي للمحاور الفنية الأربعة -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8">
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider">نطاق الخدمات الفنية والتشغيلية</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">محاور العرض الفني والتنفيذي</h2>
+            </div>
+
+            <!-- العقدة المركزية للمخطط -->
+            <div class="flex flex-col items-center mb-8">
+                <div class="bg-gradient-to-r from-teal-600 to-cyan-600 px-8 py-4 rounded-2xl shadow-2xl border-2 border-teal-300/60 text-center motion-card">
+                    <h3 class="text-lg md:text-xl font-black text-white">منظومة التطوير والتسويق الرقمي لشركة ركاز</h3>
+                </div>
+                <div class="tree-connector-v h-6"></div>
+            </div>
+
+            <div class="space-y-10">
+                <!-- أولاً: إنشاء وتطوير الموقع الإلكتروني -->
+                <div class="bg-teal-950/45 rounded-3xl p-5 md:p-7 border border-teal-500/35">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-teal-800/80 pb-4 mb-5">
+                        <div>
+                            <span class="text-xs font-bold text-teal-300">المحور الأول</span>
+                            <h3 class="text-xl md:text-2xl font-black text-white">أولاً: إنشاء وتطوير الموقع الإلكتروني</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-amber-500/20 border border-amber-400/40 text-amber-200 px-3.5 py-1.5 rounded-xl text-xs font-bold">
+                                التكلفة: 2,000 ريال سعودي (مرة واحدة)
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-dark p-4 rounded-2xl border-r-4 border-teal-400 mb-6 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <strong class="text-teal-300">الهدف:</strong> إنشاء موقع إلكتروني احترافي يمثل الواجهة الرقمية لشركة ركاز، ويعرض خدماتها بصورة منظمة تساعد العملاء على التعرف على الشركة والتواصل معها وطلب خدماتها.
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        <!-- نطاق العمل (11 بنداً) -->
+                        <div class="lg:col-span-8 glass-card-dark motion-card p-5 rounded-2xl border border-teal-800/80">
+                            <h4 class="font-black text-white text-base mb-3 border-b border-teal-800 pb-2">نطاق العمل:</h4>
+                            <ol class="list-decimal list-inside space-y-2 text-xs md:text-sm text-teal-100 leading-relaxed">
+                                <li>تحليل طبيعة نشاط الشركة والخدمات المقدمة وتحديد الهيكل المناسب للموقع.</li>
+                                <li>تصميم واجهة مستخدم احترافية تتوافق مع الهوية البصرية للشركة.</li>
+                                <li>تطوير موقع إلكتروني متوافق مع الهواتف الذكية والأجهزة اللوحية وأجهزة الكمبيوتر.</li>
+                                <li>
+                                    إنشاء الصفحات الرئيسية للموقع، وتشمل:
+                                    <ul class="list-disc list-inside mr-5 mt-1.5 space-y-1 text-cyan-200 text-xs md:text-sm bg-teal-950/70 p-3 rounded-xl border border-teal-800/70">
+                                        <li>الصفحة الرئيسية.</li>
+                                        <li>من نحن.</li>
+                                        <li>رؤيتنا ورسالتنا.</li>
+                                        <li>خدمات الموارد البشرية.</li>
+                                        <li>خدمات العلاقات الحكومية.</li>
+                                        <li>خدمات المنشآت والتراخيص.</li>
+                                        <li>الخدمات الصناعية والتجارية.</li>
+                                        <li>خدمات الشركات والمصانع.</li>
+                                        <li>اتصل بنا.</li>
+                                    </ul>
+                                </li>
+                                <li>إنشاء صفحات تفصيلية للخدمات بما يساعد الزائر على فهم كل خدمة ومتطلباتها.</li>
+                                <li>إضافة نماذج طلب الخدمة وطلب عرض السعر.</li>
+                                <li>ربط الموقع بقنوات التواصل الرسمية، بما يشمل واتساب والبريد الإلكتروني.</li>
+                                <li>تحسين تجربة المستخدم وسهولة التنقل بين الصفحات.</li>
+                                <li>إعداد البنية الأساسية لتحسين محركات البحث SEO.</li>
+                                <li>إعداد أساسيات الحماية والأداء وسرعة تحميل الصفحات.</li>
+                                <li>تهيئة الموقع لإضافة المحتوى والتطوير مستقبلاً.</li>
+                            </ol>
+                        </div>
+
+                        <!-- المخرجات ومدة التنفيذ والتكلفة -->
+                        <div class="lg:col-span-4 flex flex-col justify-between gap-4">
+                            <div class="glass-card-dark motion-card p-5 rounded-2xl border-t-4 border-emerald-400">
+                                <h4 class="font-black text-emerald-300 text-base mb-3">المخرجات:</h4>
+                                <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-teal-100 leading-relaxed">
+                                    <li>موقع إلكتروني متكامل يعرض خدمات ركاز.</li>
+                                    <li>تصميم متجاوب مع جميع الأجهزة.</li>
+                                    <li>صفحات مخصصة للخدمات.</li>
+                                    <li>نماذج تواصل وطلب عروض أسعار.</li>
+                                    <li>إعدادات SEO الأساسية للموقع.</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card-dark motion-card p-5 rounded-2xl border border-amber-400/40 bg-gradient-to-br from-teal-950/90 to-amber-950/30 space-y-3 text-xs md:text-sm">
+                                <div>
+                                    <strong class="text-amber-300 block mb-1">مدة التنفيذ:</strong>
+                                    <p class="text-teal-100">يتم تحديدها وفق متطلبات المشروع واعتماد المحتوى والهوية البصرية.</p>
+                                </div>
+                                <div class="pt-2.5 border-t border-teal-800/80">
+                                    <strong class="text-amber-300 block mb-1">التكلفة:</strong>
+                                    <p class="text-white font-black text-base">2,000 ريال سعودي (مرة واحدة).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ثانياً: إدارة منصات التواصل الاجتماعي -->
+                <div class="bg-teal-950/45 rounded-3xl p-5 md:p-7 border border-cyan-500/35">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-teal-800/80 pb-4 mb-5">
+                        <div>
+                            <span class="text-xs font-bold text-cyan-300">المحور الثاني</span>
+                            <h3 class="text-xl md:text-2xl font-black text-white">ثانياً: إدارة منصات التواصل الاجتماعي</h3>
+                        </div>
+                        <span class="bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 px-3.5 py-1.5 rounded-xl text-xs font-bold self-start md:self-auto">
+                            مدة الخدمة: 3 أشهر
+                        </span>
+                    </div>
+
+                    <div class="glass-card-dark p-4 rounded-2xl border-r-4 border-cyan-400 mb-6 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <strong class="text-cyan-300">الهدف:</strong> بناء حضور رقمي مستمر لشركة ركاز، وزيادة الوعي بعلامتها التجارية، وتعريف الجمهور المستهدف بالخدمات التي تقدمها، وتعزيز مكانتها كشريك متخصص في تقديم الخدمات الإدارية والحكومية للمنشآت.
+                    </div>
+
+                    <h4 class="font-black text-white text-base mb-4">نطاق العمل:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6" id="social-scope-grid"></div>
+
+                    <!-- المخرجات الشهرية المقترحة -->
+                    <div class="glass-card-dark motion-card p-5 rounded-2xl border border-emerald-400/40 bg-emerald-950/25">
+                        <h4 class="font-black text-emerald-300 text-base mb-3">المخرجات الشهرية المقترحة:</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs md:text-sm text-teal-50">
+                            <div class="bg-teal-950/75 p-3 rounded-xl border border-teal-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>12 منشوراً تصميمياً شهرياً.</div>
+                            <div class="bg-teal-950/75 p-3 rounded-xl border border-teal-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>كتابة وتجهيز المحتوى التسويقي.</div>
+                            <div class="bg-teal-950/75 p-3 rounded-xl border border-teal-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>إعداد خطة محتوى شهرية.</div>
+                            <div class="bg-teal-950/75 p-3 rounded-xl border border-teal-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>إدارة وجدولة النشر.</div>
+                            <div class="bg-teal-950/75 p-3 rounded-xl border border-teal-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>متابعة التفاعل.</div>
+                            <div class="bg-teal-950/75 p-3 rounded-xl border border-teal-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>تقرير أداء شهري.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ثالثاً: تحسين محركات البحث (SEO) -->
+                <div class="bg-teal-950/45 rounded-3xl p-5 md:p-7 border border-emerald-500/35">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-teal-800/80 pb-4 mb-5">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-300">المحور الثالث</span>
+                            <h3 class="text-xl md:text-2xl font-black text-white">ثالثاً: تحسين محركات البحث (SEO)</h3>
+                        </div>
+                        <span class="bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 px-3.5 py-1.5 rounded-xl text-xs font-bold self-start md:self-auto">
+                            مدة الخدمة: 3 أشهر
+                        </span>
+                    </div>
+
+                    <div class="glass-card-dark p-4 rounded-2xl border-r-4 border-emerald-400 mb-6 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <strong class="text-emerald-300">الهدف:</strong> تحسين ظهور موقع شركة ركاز في نتائج محركات البحث، وزيادة فرص الوصول إلى العملاء الذين يبحثون عن الخدمات الحكومية والإدارية وخدمات الموارد البشرية داخل المملكة العربية السعودية.
+                    </div>
+
+                    <h4 class="font-black text-white text-base mb-4">نطاق العمل:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6" id="seo-scope-grid"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                        <div class="lg:col-span-6 glass-card-dark motion-card p-5 rounded-2xl border-t-4 border-emerald-400">
+                            <h4 class="font-black text-emerald-300 text-base mb-3">المخرجات:</h4>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs md:text-sm text-teal-100">
+                                <li>دراسة الكلمات المفتاحية.</li>
+                                <li>تحسين الصفحات الأساسية.</li>
+                                <li>تحسين البنية التقنية للموقع.</li>
+                                <li>تطوير محتوى متوافق مع SEO.</li>
+                                <li>متابعة الأداء وإعداد تقارير دورية.</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-6 glass-card-dark motion-card p-5 rounded-2xl border border-amber-400/40 bg-amber-950/25 flex items-center text-xs md:text-sm text-amber-100 leading-relaxed">
+                            <p><strong class="text-amber-300">ملاحظة:</strong> تحسين محركات البحث عملية تراكمية، وتختلف نتائجها وفق المنافسة وحالة الموقع والكلمات المستهدفة، ولا يمكن ضمان ترتيب محدد خلال مدة زمنية ثابتة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- رابعاً: الحملات الإعلانية المدفوعة (خدمة إضافية مستقلة) -->
+                <div class="bg-teal-950/45 rounded-3xl p-5 md:p-7 border border-amber-500/35">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-teal-800/80 pb-4 mb-5">
+                        <div>
+                            <span class="text-xs font-bold text-amber-300">المحور الرابع</span>
+                            <h3 class="text-xl md:text-2xl font-black text-white">رابعاً: الحملات الإعلانية المدفوعة (خدمة إضافية مستقلة)</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-teal-800/70 border border-teal-600/50 text-teal-100 px-3.5 py-1.5 rounded-xl text-xs font-bold">
+                                مدة الخدمة: 3 أشهر
+                            </span>
+                            <span class="bg-amber-500/20 border border-amber-400/40 text-amber-200 px-3.5 py-1.5 rounded-xl text-xs font-bold">
+                                التكلفة: 6,000 ريال سعودي
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- توقيت بدء الحملات والهدف منه -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <div class="glass-card-dark motion-card p-5 rounded-2xl border-r-4 border-amber-400 space-y-2">
+                            <h4 class="font-black text-amber-300 text-base">توقيت بدء الحملات الإعلانية</h4>
+                            <p>لا يتم البدء في تنفيذ الحملات الإعلانية المدفوعة خلال أول شهرين من إطلاق الخطة التسويقية.</p>
+                            <p>يتم إطلاق الحملات الإعلانية اعتباراً من الشهر الثالث، أو بعد مرور ثلاثة أشهر على إطلاق الأنشطة التسويقية، وفقاً لمدى جاهزية الموقع الإلكتروني والحسابات الرقمية والمحتوى التسويقي.</p>
+                        </div>
+                        <div class="glass-card-dark motion-card p-5 rounded-2xl border-r-4 border-cyan-400 space-y-2">
+                            <h4 class="font-black text-cyan-300 text-base">الهدف من هذا التوقيت:</h4>
+                            <p>تأسيس حضور رقمي واضح للعلامة التجارية أولاً، وتجهيز المحتوى والصفحات التسويقية، وتحسين تجربة المستخدم، وبناء قاعدة من المحتوى التعريفي بالخدمات، بما يساهم في رفع كفاءة الحملات الإعلانية عند إطلاقها.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="font-black text-white text-base mb-4">نطاق العمل:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6" id="ads-scope-grid"></div>
+
+                    <div class="bg-amber-950/35 border border-amber-400/40 p-5 rounded-2xl text-xs md:text-sm text-amber-100 leading-relaxed">
+                        <strong class="text-amber-300 block mb-1">ملاحظة مالية مهمة:</strong>
+                        <p>قيمة 6,000 ريال تمثل أتعاب إعداد وإدارة الحملات الإعلانية لمدة ثلاثة أشهر، ولا تشمل الميزانية الإعلانية المدفوعة للمنصات، والتي يتم تحديدها واعتمادها بصورة مستقلة من العميل.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- خامساً: الجدول الزمني المقترح لتنفيذ المشروع -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-cyan-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-6">
+                <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider">مراحل التنفيذ على مدار 3 أشهر</span>
+                <h2 class="text-2xl font-black text-white mt-1">خامساً: الجدول الزمني المقترح لتنفيذ المشروع</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- الشهر الأول -->
+                <div class="glass-card-dark motion-card p-5 rounded-2xl border-t-4 border-teal-400 relative">
+                    <span class="inline-block bg-teal-500/20 text-teal-300 border border-teal-400/40 text-xs font-black px-3 py-1 rounded-full mb-2">المرحلة 01</span>
+                    <h3 class="text-lg font-black text-white mb-3">الشهر الأول: التأسيس وبناء الحضور الرقمي</h3>
+                    <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <li>بدء تصميم وتطوير الموقع الإلكتروني.</li>
+                        <li>إعداد الاستراتيجية التسويقية.</li>
+                        <li>تجهيز الحسابات والمنصات.</li>
+                        <li>إعداد الهوية التحريرية والمحتوى.</li>
+                        <li>بدء نشر المحتوى التعريفي.</li>
+                        <li>إجراء دراسة الكلمات المفتاحية.</li>
+                        <li>بدء التحسينات الأساسية لمحركات البحث.</li>
+                    </ul>
+                </div>
+
+                <!-- الشهر الثاني -->
+                <div class="glass-card-dark motion-card p-5 rounded-2xl border-t-4 border-cyan-400 relative">
+                    <span class="inline-block bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 text-xs font-black px-3 py-1 rounded-full mb-2">المرحلة 02</span>
+                    <h3 class="text-lg font-black text-white mb-3">الشهر الثاني: الانتشار وتعزيز الوعي</h3>
+                    <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <li>استمرار إدارة منصات التواصل الاجتماعي.</li>
+                        <li>نشر محتوى تعريفي وتوعوي بالخدمات.</li>
+                        <li>استكمال تحسين صفحات الموقع.</li>
+                        <li>تطوير المحتوى المستهدف لمحركات البحث.</li>
+                        <li>متابعة مؤشرات الوصول والتفاعل.</li>
+                        <li>تحليل استجابة الجمهور للمحتوى.</li>
+                    </ul>
+                </div>
+
+                <!-- الشهر الثالث -->
+                <div class="glass-card-dark motion-card p-5 rounded-2xl border-t-4 border-amber-400 relative">
+                    <span class="inline-block bg-amber-500/20 text-amber-300 border border-amber-400/40 text-xs font-black px-3 py-1 rounded-full mb-2">المرحلة 03</span>
+                    <h3 class="text-lg font-black text-white mb-3">الشهر الثالث: تعزيز الانتشار والاستعداد للإعلانات</h3>
+                    <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <li>استمرار إدارة الحسابات.</li>
+                        <li>استمرار أعمال SEO والتحسين التقني.</li>
+                        <li>تطوير المحتوى بناءً على الأداء.</li>
+                        <li>مراجعة جاهزية الموقع والحسابات.</li>
+                        <li>إطلاق الحملات الإعلانية المدفوعة عند استيفاء متطلبات الجاهزية واعتماد العميل.</li>
+                        <li>إعداد تقارير الأداء والتوصيات للمرحلة التالية.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card-dark p-4 rounded-2xl border border-cyan-500/35 text-xs md:text-sm text-cyan-100 leading-relaxed">
+                في حال عدم اكتمال الجاهزية الإعلانية خلال الشهر الثالث، يتم تأجيل إطلاق الحملات إلى ما بعد انتهاء الأشهر الثلاثة، مع استمرار تنفيذها لمدة ثلاثة أشهر وفق الاتفاق المستقل.
+            </div>
+        </section>
+
+        <!-- سادساً: العرض المالي -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-amber-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-6">
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">التفاصيل المالية والباقات</span>
+                <h2 class="text-2xl font-black text-white mt-1">سادساً: العرض المالي</h2>
+            </div>
+
+            <!-- جدول العرض المالي -->
+            <div class="overflow-x-auto rounded-2xl border border-teal-700/60 mb-6">
+                <table class="w-full text-right border-collapse text-xs md:text-sm">
+                    <thead>
+                        <tr class="bg-teal-900/90 text-teal-100 border-b border-teal-700">
+                            <th class="p-4 font-black">الخدمة</th>
+                            <th class="p-4 font-black">المدة</th>
+                            <th class="p-4 font-black">التكلفة</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-teal-800/60 bg-teal-950/50 text-teal-100">
+                        <tr class="hover:bg-teal-900/40 transition-colors">
+                            <td class="p-4 font-bold text-white">إدارة منصات التواصل الاجتماعي</td>
+                            <td class="p-4 text-cyan-200">3 أشهر</td>
+                            <td class="p-4 font-bold text-amber-300">12,000 ريال</td>
+                        </tr>
+                        <tr class="hover:bg-teal-900/40 transition-colors">
+                            <td class="p-4 font-bold text-white">تحسين محركات البحث SEO</td>
+                            <td class="p-4 text-cyan-200">3 أشهر</td>
+                            <td class="p-4 font-bold text-emerald-300">ضمن الباقة</td>
+                        </tr>
+                        <tr class="hover:bg-teal-900/40 transition-colors">
+                            <td class="p-4 font-bold text-white">إنشاء وتطوير الموقع الإلكتروني</td>
+                            <td class="p-4 text-cyan-200">مرة واحدة</td>
+                            <td class="p-4 font-bold text-amber-300">2,000 ريال</td>
+                        </tr>
+                        <tr class="hover:bg-teal-900/40 transition-colors">
+                            <td class="p-4 font-bold text-white">الحملات الإعلانية المدفوعة</td>
+                            <td class="p-4 text-cyan-200">3 أشهر إضافية</td>
+                            <td class="p-4 font-bold text-amber-300">6,000 ريال</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- بطاقات الإجماليات -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card-dark motion-card p-6 rounded-2xl border-2 border-teal-400/40 bg-gradient-to-br from-teal-950/90 to-teal-900/60 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-teal-500/20 text-teal-200 border border-teal-400/40 text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">الخيار الأول</span>
+                        <h3 class="text-lg md:text-xl font-black text-white mb-2">إجمالي تكلفة المرحلة الأساسية</h3>
+                        <p class="text-xs md:text-sm text-teal-100 leading-relaxed mb-4">
+                            إدارة السوشيال ميديا وتحسين محركات البحث لمدة ثلاثة أشهر، بالإضافة إلى إنشاء الموقع الإلكتروني:
+                        </p>
+                    </div>
+                    <div class="bg-teal-950/90 border border-teal-500/40 p-4 rounded-xl text-center">
+                        <span class="text-2xl md:text-3xl font-black text-amber-300">14,000 ريال سعودي.</span>
+                    </div>
+                </div>
+
+                <div class="glass-card-dark motion-card p-6 rounded-2xl border-2 border-amber-400/50 bg-gradient-to-br from-teal-950/90 to-amber-950/40 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-amber-500/20 text-amber-200 border border-amber-400/40 text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">الخيار الشامل</span>
+                        <h3 class="text-lg md:text-xl font-black text-white mb-2">إجمالي التكلفة في حال إضافة الحملات الإعلانية</h3>
+                        <ul class="space-y-1.5 text-xs md:text-sm text-teal-100 mb-4">
+                            <li>المرحلة الأساسية: 14,000 ريال.</li>
+                            <li>إدارة الحملات الإعلانية لمدة ثلاثة أشهر: 6,000 ريال.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-950/60 border border-amber-400/50 p-4 rounded-xl text-center">
+                        <span class="text-2xl md:text-3xl font-black text-amber-300">الإجمالي: 20,000 ريال سعودي.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- سابعاً: شروط وأحكام التعاقد + ثامناً: الخاتمة -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- سابعاً: شروط وأحكام التعاقد -->
+            <div class="lg:col-span-6 glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-teal-400">
+                <div class="border-b border-teal-700/50 pb-4 mb-5">
+                    <span class="text-xs font-bold text-teal-300 uppercase tracking-wider">الضوابط التنظيمية</span>
+                    <h2 class="text-xl md:text-2xl font-black text-white mt-1">سابعاً: شروط وأحكام التعاقد</h2>
+                </div>
+
+                <ol class="list-decimal list-inside space-y-2.5 text-xs md:text-sm text-teal-100 leading-relaxed bg-teal-950/75 p-5 rounded-2xl border border-teal-800/80">
+                    <li>مدة خدمات إدارة منصات التواصل الاجتماعي وتحسين محركات البحث ثلاثة أشهر من تاريخ بدء التنفيذ.</li>
+                    <li>يتم تنفيذ الموقع الإلكتروني وفق نطاق العمل المتفق عليه واعتماد المحتوى من العميل.</li>
+                    <li>يلتزم العميل بتوفير المعلومات والمستندات والمواد اللازمة لتنفيذ الخدمات.</li>
+                    <li>تعتمد التصاميم والمحتويات من العميل قبل النشر.</li>
+                    <li>تشمل الباقة إدارة المحتوى والتصميم والنشر وفق المخرجات المحددة في العرض.</li>
+                    <li>لا تشمل الباقة تكاليف الاستضافات أو النطاقات أو التراخيص والاشتراكات الخارجية المدفوعة، ما لم يتم الاتفاق على خلاف ذلك.</li>
+                    <li>أتعاب الحملات الإعلانية مستقلة عن الباقة الأساسية، ولا يتم البدء بها إلا في الشهر الثالث أو بعد مرور ثلاثة أشهر على إطلاق التسويق.</li>
+                    <li>الميزانية الإعلانية المدفوعة للمنصات غير مشمولة في أتعاب إدارة الحملات.</li>
+                    <li>لا يتضمن العرض ضمان تحقيق عدد محدد من المبيعات أو الزيارات أو ترتيب ثابت في نتائج محركات البحث.</li>
+                    <li>أي خدمات إضافية خارج نطاق العمل الموضح يتم تسعيرها والاتفاق عليها بشكل مستقل.</li>
+                </ol>
+            </div>
+
+            <!-- ثامناً: الخاتمة -->
+            <div class="lg:col-span-6 glass-card motion-reveal rounded-3xl p-6 md:p-8 border-2 border-amber-400/40 bg-gradient-to-br from-teal-900/70 via-teal-950/80 to-cyan-950/70 flex flex-col justify-between">
+                <div>
+                    <div class="border-b border-teal-700/50 pb-4 mb-5">
+                        <span class="bg-amber-500/20 text-amber-300 border border-amber-400/40 text-xs font-bold px-3.5 py-1 rounded-full inline-block mb-2">
+                            ختام العرض
+                        </span>
+                        <h2 class="text-2xl font-black text-white">ثامناً: الخاتمة</h2>
+                    </div>
+
+                    <div class="space-y-4 text-xs md:text-sm text-teal-100 leading-relaxed">
+                        <p>تؤمن شركة شراع بأن بناء حضور رقمي قوي لشركة ركاز يتطلب العمل على منظومة متكاملة تبدأ بإنشاء واجهة إلكترونية احترافية، مروراً ببناء الوعي بالعلامة التجارية وتعزيز حضورها على منصات التواصل الاجتماعي، وصولاً إلى تحسين ظهورها في محركات البحث، ثم الانتقال إلى الحملات الإعلانية المدفوعة في التوقيت المناسب.</p>
+                        <p>وتهدف هذه الخطة إلى تعزيز مكانة ركاز في السوق السعودي، وزيادة وصول خدماتها إلى أصحاب المنشآت والشركات والمصانع، وبناء قنوات رقمية مستدامة تساهم في دعم نمو الأعمال واستقطاب فرص تجارية جديدة.</p>
+                        <p>وتتطلع شركة شراع إلى بناء شراكة ناجحة ومستمرة مع شركة ركاز، والمساهمة في تحقيق أهدافها التسويقية والتجارية.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-teal-700/70 bg-teal-950/80 p-5 rounded-2xl border border-amber-400/30 space-y-2 text-xs md:text-sm">
+                    <p class="font-black text-white text-base">مقدم العرض: شركة شراع</p>
+                    <p class="text-amber-300 font-bold">إجمالي العرض الأساسي: 14,000 ريال سعودي.</p>
+                    <p class="text-cyan-200 font-bold">الخدمات الإعلانية الإضافية: 6,000 ريال سعودي لمدة ثلاثة أشهر.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- عناصر عائمة سفلية (الشعار المتحرك المتوهج + واتساب) -->
+    <div class="fixed bottom-5 left-5 z-50 flex items-center gap-3">
+        <div class="floating-glow-logo bg-teal-900/90 backdrop-blur-md p-1.5 rounded-2xl border-2 border-teal-400/80" title="شركة شراع">
+            <img src="https://i.ibb.co/3mcGJZDm/f7a2f35c-a1d9-41a9-abab-883812218eaf.jpg" alt="شعار شركة شراع" class="w-11 h-11 object-cover rounded-xl">
+        </div>
+        <a href="https://wa.me/966578310776" target="_blank" rel="noopener noreferrer"
+           class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-2xl shadow-2xl transition-transform hover:scale-105 border-2 border-emerald-300"
+           title="تواصل عبر واتساب">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- كود JavaScript لبناء البطاقات وتفعيل التفاعل والموشن -->
+    <script>
+        try {
+            // بيانات نطاق العمل لإدارة منصات التواصل الاجتماعي (ثانياً)
+            const socialScopeData = [
+                {
+                    title: "1. إعداد الاستراتيجية التسويقية",
+                    accent: "cyan",
+                    items: [
+                        "دراسة نشاط الشركة والخدمات المقدمة.",
+                        "تحديد الشرائح المستهدفة في السوق السعودي.",
+                        "تحديد طبيعة الجمهور المستهدف، بما يشمل أصحاب الشركات والمديرين التنفيذيين ومديري الموارد البشرية ومسؤولي العلاقات الحكومية وأصحاب المصانع والمنشآت التجارية.",
+                        "تحديد الرسائل التسويقية المناسبة لكل شريحة.",
+                        "وضع محاور المحتوى والخطة التحريرية الشهرية.",
+                        "تحديد أسلوب التواصل والهوية الاتصالية للعلامة التجارية."
+                    ]
+                },
+                {
+                    title: "2. إدارة الحسابات والمنصات",
+                    accent: "teal",
+                    intro: "إدارة الحسابات الرسمية للشركة على منصات التواصل المناسبة لطبيعة النشاط، وتشمل:",
+                    items: [
+                        "Instagram.",
+                        "Tiktok",
+                        "LinkedIn.",
+                        "Snapchat"
+                    ],
+                    footer: "مع مراعاة اختلاف طبيعة الجمهور والمحتوى المناسب لكل منصة."
+                },
+                {
+                    title: "3. إعداد وتصميم المحتوى",
+                    accent: "emerald",
+                    intro: "إنتاج محتوى تسويقي احترافي يركز على التعريف بخدمات ركاز وبناء الثقة لدى العملاء، ويشمل:",
+                    items: [
+                        "تصميم منشورات تعريفية بالخدمات.",
+                        "تصميم منشورات توعوية حول المنصات الحكومية.",
+                        "محتوى تعريفي بخدمات الموارد البشرية.",
+                        "محتوى خاص بخدمات التراخيص والمعاملات الحكومية.",
+                        "محتوى يوضح أهمية الالتزام بالمتطلبات الحكومية للمنشآت.",
+                        "محتوى خاص بالخدمات الصناعية والتجارية.",
+                        "تصميم منشورات تبرز مميزات التعامل مع ركاز.",
+                        "إعداد محتوى يعالج المشكلات التي تواجه أصحاب المنشآت في إدارة معاملاتهم.",
+                        "محتوى يعزز الصورة الاحترافية للشركة."
+                    ]
+                },
+                {
+                    title: "4. كتابة المحتوى التسويقي",
+                    accent: "amber",
+                    items: [
+                        "كتابة النصوص التسويقية للمنشورات.",
+                        "إعداد عناوين جذابة وواضحة.",
+                        "صياغة دعوات لاتخاذ إجراء (CTA).",
+                        "إعداد محتوى يتناسب مع طبيعة الجمهور السعودي.",
+                        "توحيد الرسائل التسويقية واللغة المستخدمة عبر المنصات."
+                    ]
+                },
+                {
+                    title: "5. النشر وإدارة التفاعل",
+                    accent: "cyan",
+                    items: [
+                        "جدولة ونشر المحتوى وفق الخطة الشهرية.",
+                        "متابعة التفاعل على المنشورات.",
+                        "متابعة الرسائل والتعليقات ضمن نطاق إدارة الحسابات.",
+                        "تعزيز التواصل مع الجمهور.",
+                        "تقديم توصيات لتحسين مستوى التفاعل والوصول."
+                    ]
+                },
+                {
+                    title: "6. التقارير وقياس الأداء",
+                    accent: "teal",
+                    intro: "إعداد تقارير دورية تتضمن:",
+                    items: [
+                        "معدلات الوصول والانطباعات.",
+                        "نمو المتابعين.",
+                        "مستوى التفاعل.",
+                        "أداء المنشورات.",
+                        "أكثر أنواع المحتوى جذباً للجمهور.",
+                        "التوصيات التسويقية للفترة التالية."
+                    ]
+                }
+            ];
+
+            // بيانات نطاق العمل لتحسين محركات البحث SEO (ثالثاً)
+            const seoScopeData = [
+                {
+                    title: "1. دراسة الكلمات المفتاحية",
+                    accent: "emerald",
+                    intro: "إجراء دراسة للكلمات المفتاحية المرتبطة بخدمات الشركة، بما يشمل:",
+                    items: [
+                        "خدمات الموارد البشرية في السعودية.",
+                        "خدمات قوى للمنشآت.",
+                        "خدمات مقيم.",
+                        "خدمات مدد وحماية الأجور.",
+                        "خدمات التأمينات الاجتماعية للشركات.",
+                        "خدمات العلاقات الحكومية.",
+                        "خدمات التراخيص التجارية.",
+                        "خدمات بلدي وسلامة.",
+                        "خدمات فسح وسابر.",
+                        "خدمات التراخيص الصناعية.",
+                        "خدمات المنشآت والمصانع."
+                    ],
+                    footer: "مع تحديد الكلمات المناسبة وفق حجم البحث والمنافسة ومدى ارتباطها بالخدمات المقدمة."
+                },
+                {
+                    title: "2. التحسين الداخلي للموقع (On-Page SEO)",
+                    accent: "teal",
+                    items: [
+                        "تحسين عناوين الصفحات.",
+                        "تحسين الأوصاف التعريفية Meta Description.",
+                        "تحسين هيكلة العناوين الرئيسية والفرعية.",
+                        "تحسين الروابط الداخلية بين الصفحات.",
+                        "تحسين الصور وأوصافها.",
+                        "تنظيم صفحات الخدمات.",
+                        "تحسين المحتوى ليتوافق مع الكلمات المفتاحية المستهدفة."
+                    ]
+                },
+                {
+                    title: "3. التحسين التقني (Technical SEO)",
+                    accent: "cyan",
+                    items: [
+                        "مراجعة قابلية الموقع للفهرسة.",
+                        "إعداد ملف Sitemap.",
+                        "إعداد ملف Robots.txt.",
+                        "ربط الموقع بأدوات Google Search Console.",
+                        "مراجعة سرعة الموقع وتجربة التصفح.",
+                        "تحسين توافق الموقع مع الهواتف الذكية.",
+                        "معالجة المشكلات التقنية المؤثرة على الظهور في نتائج البحث."
+                    ]
+                },
+                {
+                    title: "4. تحسين المحتوى",
+                    accent: "amber",
+                    items: [
+                        "إعداد محتوى متوافق مع محركات البحث.",
+                        "تطوير صفحات الخدمات.",
+                        "إعداد محتوى توعوي يجيب عن استفسارات العملاء.",
+                        "استهداف الكلمات المفتاحية المرتبطة بالخدمات الأكثر طلباً.",
+                        "تحسين المحتوى بما يدعم ظهور الموقع في نتائج البحث."
+                    ]
+                },
+                {
+                    title: "5. متابعة الأداء والتحسين المستمر",
+                    accent: "emerald",
+                    items: [
+                        "متابعة ترتيب الكلمات المفتاحية.",
+                        "متابعة عدد الزيارات العضوية.",
+                        "تحليل أداء صفحات الموقع.",
+                        "متابعة الفهرسة.",
+                        "مراجعة فرص التحسين.",
+                        "تقديم تقارير وتوصيات شهرية."
+                    ]
+                }
+            ];
+
+            // بيانات نطاق العمل للحملات الإعلانية المدفوعة (رابعاً)
+            const adsScopeData = [
+                {
+                    title: "1. إعداد الاستراتيجية الإعلانية",
+                    accent: "amber",
+                    items: [
+                        "تحديد أهداف الحملات الإعلانية.",
+                        "تحديد الشرائح المستهدفة.",
+                        "تحديد المناطق الجغرافية داخل المملكة.",
+                        "تحديد الخدمات ذات الأولوية في الترويج.",
+                        "إعداد الرسائل الإعلانية المناسبة.",
+                        "وضع خطة توزيع الميزانية الإعلانية."
+                    ]
+                },
+                {
+                    title: "2. إعداد وإدارة الحملات",
+                    accent: "cyan",
+                    intro: "تنفيذ الحملات عبر المنصات المناسبة لطبيعة النشاط، مثل:",
+                    items: [
+                        "Google Ads.",
+                        "Meta Ads (Facebook & Instagram).",
+                        "LinkedIn Ads عند ملاءمته للأهداف والجمهور المستهدف."
+                    ]
+                },
+                {
+                    title: "3. تصميم المواد الإعلانية",
+                    accent: "teal",
+                    items: [
+                        "إعداد التصاميم الإعلانية.",
+                        "كتابة النصوص الإعلانية.",
+                        "إعداد الرسائل التسويقية.",
+                        "تجهيز الروابط والصفحات المستهدفة.",
+                        "إعداد دعوات اتخاذ الإجراء."
+                    ]
+                },
+                {
+                    title: "4. إدارة وتحسين الحملات",
+                    accent: "emerald",
+                    items: [
+                        "متابعة أداء الحملات.",
+                        "تحليل النتائج.",
+                        "تحسين الاستهداف.",
+                        "اختبار الإعلانات المختلفة.",
+                        "تحسين تكلفة الوصول والتحويل.",
+                        "إعداد تقارير دورية بالأداء والنتائج."
+                    ]
+                },
+                {
+                    title: "5. متابعة العملاء المحتملين",
+                    accent: "amber",
+                    items: [
+                        "قياس طلبات التواصل والاستفسارات.",
+                        "متابعة مصادر العملاء المحتملين.",
+                        "تحليل جودة الطلبات.",
+                        "تقديم توصيات لتحسين معدلات التحويل."
+                    ]
+                }
+            ];
+
+            // دالة موحدة لرسم بطاقات نطاق العمل
+            function renderScopeCards(containerId, dataList) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                dataList.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = `glass-card-dark motion-card p-5 rounded-2xl border-t-4 border-${item.accent}-400 flex flex-col justify-between`;
+                    card.innerHTML = `
+                        <div>
+                            <h5 class="font-black text-white text-base mb-2.5">${item.title}</h5>
+                            ${item.intro ? `<p class="text-xs text-${item.accent}-200 mb-2 leading-relaxed">${item.intro}</p>` : ''}
+                            <ul class="list-disc list-inside space-y-1.5 text-xs md:text-sm text-teal-100 leading-relaxed">
+                                ${item.items.map(li => `<li>${li}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ${item.footer ? `<p class="text-xs text-amber-200 mt-3 pt-2.5 border-t border-teal-800/80 leading-relaxed">${item.footer}</p>` : ''}
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            renderScopeCards('social-scope-grid', socialScopeData);
+            renderScopeCards('seo-scope-grid', seoScopeData);
+            renderScopeCards('ads-scope-grid', adsScopeData);
+
+            // تفعيل تأثيرات الموشن الانسيابية عند التمرير (Intersection Observer)
+            const revealElements = document.querySelectorAll('.motion-reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, idx) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, idx * 80);
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.06 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        } catch (error) {
+            console.error('حدث خطأ أثناء تهيئة العرض:', error);
+        }
+    </script>
+</body>
+</html>
